@@ -1,0 +1,70 @@
+{
+  "folders": [
+    "~/OneDrive/Desktop",
+    "~/Downloads",
+    "~/OneDrive/Documents"
+  ],
+
+  "type_folders": {
+    "Spreadsheets":            [".xlsx", ".xls", ".xlsm", ".csv", ".ods"],
+    "Presentations":           [".pptx", ".ppt", ".odp", ".key"],
+    "Images":                  [".png", ".jpg", ".jpeg", ".webp", ".heic", ".gif", ".bmp", ".svg", ".tif", ".tiff"],
+    "Videos":                  [".mp4", ".mov", ".mkv", ".avi", ".wmv", ".webm"],
+    "Audio":                   [".mp3", ".wav", ".m4a", ".flac", ".aac", ".ogg"],
+    "Archives":                [".zip", ".rar", ".7z", ".tar", ".gz", ".tgz"],
+    "Installers & Disk Images":[".exe", ".msi", ".msix", ".appx", ".iso", ".img", ".dmg"],
+    "Code & Data":             [".py", ".js", ".ts", ".json", ".xml", ".yaml", ".yml", ".html", ".sql", ".ps1", ".sh", ".log"],
+    "3D & CAD":                [".stl", ".3mf", ".obj", ".step", ".stp", ".gcode", ".f3d"]
+  },
+
+  "document_extensions": [".pdf", ".docx", ".doc", ".txt", ".rtf", ".odt", ".md", ".pages"],
+
+  "topics": [
+    "Resumes & Career",
+    "Receipts & Invoices",
+    "Taxes",
+    "Bank & Finance",
+    "Medical",
+    "Insurance",
+    "Legal & Contracts",
+    "Housing & Utilities",
+    "Vehicles",
+    "Manuals & Guides",
+    "School & Education",
+    "Work",
+    "Tech & Projects",
+    "Travel",
+    "Personal",
+    "Other Documents"
+  ],
+
+  "never_move_extensions": [".lnk", ".url", ".ini"],
+  "skip_if_modified_within_minutes": 60,
+
+  "potential_junk": {
+    "folder": "Potential Junk",
+    "unfinished_download_extensions": [".crdownload", ".part", ".partial", ".opdownload", ".tmp"],
+    "installer_extensions": [".exe", ".msi", ".msix", ".appx"],
+    "installer_older_than_days": 90,
+    "disk_image_extensions": [".iso", ".img", ".dmg"],
+    "disk_image_older_than_days": 180
+  },
+  "model": "claude-opus-5",
+
+  "gmail": {
+    "max_per_rule": 10000,
+    "scan_sample": 2000,
+    "scan_query": "newer_than:1y -in:chats",
+    "never_open_threshold": 0.9,
+    "rules": [
+      {"label": "TIDY/Receipts",        "query": "subject:(receipt OR invoice OR \"order confirmation\" OR \"your order\" OR \"payment received\")"},
+      {"label": "TIDY/Bills & Finance", "query": "subject:(statement OR \"bill is ready\" OR \"payment due\" OR autopay OR \"direct deposit\")"},
+      {"label": "TIDY/Jobs & Career",   "query": "from:(linkedin.com OR indeed.com OR glassdoor.com OR ziprecruiter.com OR dice.com OR greenhouse.io OR lever.co OR myworkday.com) OR subject:(\"job alert\" OR interview OR \"your application\" OR \"application received\")"},
+      {"label": "TIDY/Security",        "query": "subject:(\"security alert\" OR \"verification code\" OR \"new sign-in\" OR \"password reset\" OR \"2-step\")"},
+      {"label": "TIDY/Travel",          "query": "subject:(itinerary OR \"boarding pass\" OR \"flight confirmation\" OR \"reservation confirmed\")"},
+      {"label": "TIDY/Newsletters",     "query": "unsubscribe -category:promotions -category:social"},
+      {"label": "TIDY/Potential Junk",  "query": "category:promotions is:unread older_than:6m"},
+      {"label": "TIDY/Potential Junk",  "query": "category:social is:unread older_than:1y"}
+    ]
+  }
+}
