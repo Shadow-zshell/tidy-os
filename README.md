@@ -45,7 +45,7 @@ TIDY//OS was built around one rule: **nothing gets deleted — only sorted.**
 ## 🚀 Quick start
 
 ```bash
-git clone https://github.com/Shadow-zshell/tidy-os.git
+git clone https://github.com/ShadowHertz/tidy-os.git
 cd tidy-os
 py -m pip install -r requirements.txt
 pythonw app.pyw
